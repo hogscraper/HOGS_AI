@@ -28,7 +28,7 @@ short tutorials/hints on how to utilize each variable to maximize your users' AI
 Static_Missions=false;
 
 //This is the mission timer code. 1800 seconds = 30 minutes
-AI_Timer={_HAI_TIMER=time;waitUntil{(time-_HAI_TIMER)>3600};Bounce_Mission=true;};
+AI_Timer={_HAI_TIMER=time;waitUntil{(time-_HAI_TIMER)>1800};Bounce_Mission=true;};
 Prize_Timer = 600;  //Number of seconds before the prize box is deleted. Prize_Timer = 0; will leave boxes until server restart.
 Mission_Delay = 20; //This is the time, (in seconds), to delay between the end of one mission and the start of the next.
 Mission_Marker_X = 600; //Mission markers will be circles with width and height equal to these values.
