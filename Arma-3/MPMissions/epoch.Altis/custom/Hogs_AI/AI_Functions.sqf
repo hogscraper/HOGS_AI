@@ -43,9 +43,11 @@ if((count units _group)==1)then{
 _group selectLeader _unit;
 };
 [_unit] call HOGS_AI_LOADOUT_CREATOR;
-_unit setSkill _skill;
-_unit setBehaviour "RED";
 
+_unit setCombatMode "RED";
+_unit setBehaviour "COMBAT";
+
+_unit setSkill _skill;
 };
 
 _group setCombatMode "RED";
