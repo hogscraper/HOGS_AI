@@ -4,6 +4,9 @@ HOGS_AI_GRP_DELETE=[];
 
 HC1_Owner=owner player;
 
+RESISTANCE setFriend [WEST,0];
+RESISTANCE setFriend [EAST,0];
+RESISTANCE setFriend [CIVILIAN,0];
 
 "ClientRequestAIHelper" addPublicVariableEventHandler
 {
@@ -14,7 +17,7 @@ _item=_Input_Array select 1;
 _Xpos=_Input_Array select 2;
 _Ypos=_Input_Array select 3;
 _Dir =_Input_Array select 4;
-diag_log format ["****************** xpos=%1, ypos=%2",_Xpos,_Ypos];
+
 
 _1=createVehicle[_item,[_Xpos,_Ypos,0.1],[],0,"CAN_COLLIDE"];
 _1 setDir _Dir;
@@ -72,13 +75,6 @@ _1 call EPOCH_server_setVToken;
 HOGS_AI_VEH_DELETE pushBack _1;
 publicVariable "HOGS_AI_VEH_DELETE";
 
-{
-diag_log format ["vehicle = %1 ******************************************",_x];
-}forEach HOGS_AI_VEH_DELETE;
-
-diag_log format ["HC1_Owner = %1 ******************************************",HC1_Owner];
-//_1 setOwner HC1_Owner;
-//_1 lock true;
 
 };
 case 3:{
@@ -90,7 +86,6 @@ HOGS_AI_BUI_DELETE pushBack _1;
 "ClientRequestMissionCleanup" addPublicVariableEventHandler
 {
 _switch=_this select 1;
-diag_log format ["switch=%1",_switch];
 switch(_switch)do{
 case 0:{
 {
