@@ -254,12 +254,14 @@ _NumberAlive=_NumberAlive + 1;
 };
 _AIDis= _x distance [_AO_Pos_X,_AO_Pos_Y,_AO_Pos_Z];
 _AIPosition=getPos _x;
+
 if((_AIDis>Mission_Marker_X)||(_AIDis>Mission_Marker_Y)) then{
 _NumberOutside=_NumberOutside+1;
 };
 
 }forEach (units _x);
 }forEach HOGS_AI_GRP_DELETE;
+
 
 //If all bandit AI are dead=win
 if(_NumberAlive==0)exitWith{};
